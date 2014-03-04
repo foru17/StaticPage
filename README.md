@@ -102,7 +102,7 @@ grunt watch
 
 使用`grunt bundle`可自动生成不包含开发时的杂乱文件压缩包，文件名为`项目名称-生成时间.zip`的压缩包。
 
-执行`grunt bundle`实际上为依次执行'clean:pre', 'copy:main','cssmin','copy:archive', 'clean:post','compress'等命令，首先将先前`build`文件夹中的内容清空，然后生成、复制、压缩最新的代码(不包含node_modules文件夹、`.gitignore`、'Gruntfile.js'等配置文件)。
+执行`grunt bundle`实际上为依次执行'clean:pre', 'copy:main','cssmin','copy:archive', 'clean:post','compress'等命令，首先将先前`build`文件夹中的内容清空，然后生成、复制、压缩最新的代码(不包含`node_modules`文件夹、`.gitignore`、`Gruntfile.js`等配置文件)。
 
 ####说明
 
