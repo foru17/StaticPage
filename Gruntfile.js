@@ -133,7 +133,8 @@ module.exports=function(grunt){
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-uglify');
 
-    grunt.registerTask('default', ['sass:admin','cssmin']);
+    grunt.registerTask('default', ['cssmin','uglify']);
+    grunt.registerTask('sass', ['sass:admin','cssmin']);
     //执行 grunt bundle --最终输出的文件 name.zip 文件
     grunt.registerTask('bundle', ['clean:pre', 'copy:main','cssmin','copy:archive', 'clean:post','compress']);
 
