@@ -8,14 +8,12 @@ A quick Template for quikly creating a static page project.Based on grunt.
 
 ````
 git clone https://github.com/foru17/StaticPage.git
-
 ````
 ####安装Npm依赖包
 
 
 ````
 npm install
-
 ````
 
 安装完毕之后，你将得到如下的文件结构
@@ -26,12 +24,51 @@ npm install
 newProject/
 |
 |-----assets //dev模式下css、js、images等集合
+|           |-css
+|           |-js
+|           |-images
+|
 |-----build //最终的项目所有文件线    上版本（不包含dev时包含的配置文件等）
 |       |-assets //上线时的css、js、images等
+|           |-css
+|               |-min.style.css //最终生成的为压缩版本的css
+|           |-js
+|               |-min.v.js //最终生成的为压缩版本的js
+|               |-other.js //其他样式表
+|           |-images
+|
 |       |-favicon.ico //静态页的ico
 |       |-index.html
-
-
+|       |-README.md //附上MD文档
+|       |-此处根据项目需求，引入不用文件
+|
+|-----css //样式表开发目录
+|   |-sass //推荐使用Sass样式表
+|       |- _481up.scss
+|       |- _768up.scss
+|       |- _base.scss
+|       |- _mixins.scss
+|       |- _reset.scss  //此处可用normalize.css样式，也可以根据项目需求自定义
+|       |- style.scss //此处为Sass基础文件 ，在此处根据需求@import 样式
+|   |-style.css //Sass编译处理生成的样式表为style.css，也可直接编辑此样式表
+|   |-style.css.map //若使用Sass --pre 版本，可使用sourcemap功能
+|
+|-----js //JavaScript相关
+|   |-base.js //基础样式在这里，最终压缩为min.v.js
+|
+|----- .node_modules / //npm安装
+|   |-base.js //基础样式在这里，最终压缩为min.v.js
+|
+|-----.gitignore //默认使用git，配置好gitignore文件
+|-----Gruntfiles.js //grunt配置文件 建议先阅读配置
+|-----package.json //grunt依赖包配置文件
 ````
+
+使用`grunt bundle`可自动生成不包含开发时的杂乱文件，文件名为`项目名词-生成时间.zip`的压缩包。压缩包内为文件夹`build`内所有文件。
+
+####说明
+
+此工具适合简单静态页项目，可根据自己项目需求配置
+
 
 

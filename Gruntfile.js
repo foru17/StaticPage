@@ -8,7 +8,7 @@ module.exports=function(grunt){
             scss:'./css/sass',//开始推荐使用Sass
             css:'./css', //若简单项目，可直接使用原生CSS，同样可以grunt watch进行监控
             js:'./js' //JavaScript相关目录
-            img:'./images' //图片相关
+            img:'./img' //图片相关
         },
         buildType:'Build',
         pkg: grunt.file.readJSON('package.json'),
