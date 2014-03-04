@@ -1,0 +1,43 @@
+/**
+ * StaticPage 自动
+ * url: http://this.is26.com
+ * blog: http://luolei.org
+ */
+
+@import "reset";//首先载入reset样式:建议根据自己的项目需求自定义
+@import "mixins";
+@import "base";
+
+/* 针对不同分辨率的适配可以根据需求自定义 */
+
+@media only screen and (min-width: 481px) {
+
+        // styles in 481up.scss
+        @import "481up";
+
+} // end of media query
+
+
+@media only screen and (min-width: 768px) {
+
+        // import grids
+        @import "grid";
+
+        // styles in 768up.scss
+        @import "768up";
+
+} // end of media query
+
+
+@media only screen and (min-width: 1030px) {
+
+        // styles in 1030up.scss
+        @import "1030up";
+
+} // end of media query
+
+
+
+@media print {
+    @import "print";
+} // end of media query
