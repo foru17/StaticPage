@@ -64,6 +64,14 @@ newProject/
 |-----package.json //grunt依赖包配置文件
 ````
 
+####初始化
+
+git clone下来后，可以将`StaticPage`文件夹修改成项目的文件名，建议初始化时可执行一次。
+
+````
+grunt bundle
+````
+
 ####grunt配置
 
 ######CSS编译&&压缩
@@ -72,11 +80,13 @@ newProject/
 
 ######JS文件
 
-使用`concat`根据自己的需求对js进行压缩（一般简单静态页面使用一个`base.js`即可），默认使用`uglify`对js文件进行压缩。
+使用`concat`根据自己的需求对js进行压缩（一般简单静态页面使用一个`base.js`即可），默认使用`uglify`对js文件进行压缩，在最终的min.v.js文件前面加上时间戳（可以根据需求删除）。
 
-#######打包&&发布
+######打包&&发布
 
 使用`grunt bundle`可自动生成不包含开发时的杂乱文件压缩包，文件名为`项目名称-生成时间.zip`的压缩包。压缩包内为文件夹`build`内所有文件。
+
+执行`grunt bundle`实际上为依次执行'clean:pre', 'copy:main','cssmin','copy:archive', 'clean:post','compress'等命令，首先将先前`build`文件夹中的内容清空，然后生成、复制、压缩最新的代码。
 
 ####说明
 
