@@ -1,0 +1,16 @@
+#始终忽略
+*.swp
+*.swo
+*.err
+*.diff
+*.sass-cache
+*.ruby-version
+*.db
+*.zip
+#OSX系统下忽略
+.DS_Store
+
+# Folders
+.sass-cache/
+node_modules/
+build/
