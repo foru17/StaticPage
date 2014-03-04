@@ -28,7 +28,7 @@ newProject/
 |           |-js
 |           |-images
 |
-|-----build //最终的项目所有文件线    上版本（不包含dev时包含的配置文件等）
+|-----build //最终的项目所有文件线上版本（不包含dev时包含的配置文件等）
 |       |-assets //上线时的css、js、images等
 |           |-css
 |               |-min.style.css //最终生成的为压缩版本的css
@@ -56,8 +56,7 @@ newProject/
 |-----js //JavaScript相关
 |   |-base.js //基础样式在这里，最终压缩为min.v.js
 |
-|----- .node_modules / //npm安装
-|   |-base.js //基础样式在这里，最终压缩为min.v.js
+|----- .node_modules / //npm安装依赖包所在文件夹
 |
 |-----.gitignore //默认使用git，配置好gitignore文件
 |-----Gruntfiles.js //grunt配置文件 建议先阅读配置
@@ -78,11 +77,27 @@ grunt bundle
 
 对于`Sass`可自动编译和纠错，使用`cssmin`对文件进行压缩，可有效减少文件大小.
 
-使用`grunt sass`可进行Sass编译。若直接使用原生css，可直接执行`grunt`。
+使用
+
+````
+grunt sass
+````
+
+可进行Sass编译。若直接使用原生css，可直接执行`grunt`。
 
 ######JS文件
 
 使用`concat`根据自己的需求对js进行压缩（一般简单静态页面使用一个`base.js`即可），默认使用`uglify`对js文件进行压缩，在最终的min.v.js文件前面加上时间戳（可以根据需求删除）。
+
+######文件监听
+
+使用
+
+````
+grunt watch
+
+````
+可监听所有的开发目录下`.scss`,`.css`,'.js'的变化，自动编译压缩。当然，也可以单独使用`grunt watch:sass`或者`grunt watch:css`分别监听.scss和.css文件。
 
 ######打包&&发布
 
