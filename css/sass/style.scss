@@ -21,10 +21,10 @@
 @media only screen and (min-width: 768px) {
 
         // import grids
-        @import "grid";
+        //@import "grid";
 
         // styles in 768up.scss
-        @import "768up";
+        //@import "768up";
 
 } // end of media query
 
@@ -32,12 +32,12 @@
 @media only screen and (min-width: 1030px) {
 
         // styles in 1030up.scss
-        @import "1030up";
+        //@import "1030up";
 
 } // end of media query
 
 
 
 @media print {
-    @import "print";
+    //@import "print";
 } // end of media query
