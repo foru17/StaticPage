@@ -28,7 +28,7 @@ newProject/
 |           |-js
 |           |-images
 |
-|-----build //最终的项目所有文件线上版本（不包含dev时包含的配置文件等）
+|-----build //开发涉及的相关所有文件
 |       |-assets //上线时的css、js、images等
 |           |-css
 |               |-min.style.css //最终生成的为压缩版本的css
@@ -65,7 +65,7 @@ newProject/
 
 ####初始化
 
-git clone下来后，可以将`StaticPage`文件夹修改成项目的文件名，建议初始化时可执行一次。
+git clone下来后，可以将`StaticPage`文件夹修改成项目的文件名，建议初始化时可执行一次:
 
 ````
 grunt bundle
@@ -95,19 +95,22 @@ grunt sass
 
 ````
 grunt watch
-
 ````
 可监听所有的开发目录下`.scss`,`.css`,'.js'的变化，自动编译压缩。当然，也可以单独使用`grunt watch:sass`或者`grunt watch:css`分别监听.scss和.css文件。
 
 ######打包&&发布
 
-使用`grunt bundle`可自动生成不包含开发时的杂乱文件压缩包，文件名为`项目名称-生成时间.zip`的压缩包。压缩包内为文件夹`build`内所有文件。
+使用`grunt bundle`可自动生成不包含开发时的杂乱文件压缩包，文件名为`项目名称-生成时间.zip`的压缩包。
 
-执行`grunt bundle`实际上为依次执行'clean:pre', 'copy:main','cssmin','copy:archive', 'clean:post','compress'等命令，首先将先前`build`文件夹中的内容清空，然后生成、复制、压缩最新的代码。
+执行`grunt bundle`实际上为依次执行'clean:pre', 'copy:main','cssmin','copy:archive', 'clean:post','compress'等命令，首先将先前`build`文件夹中的内容清空，然后生成、复制、压缩最新的代码(不包含node_modules文件夹、`.gitignore`、'Gruntfile.js'等配置文件)。
 
 ####说明
 
 此工具适合简单静态页项目，可根据自己项目需求配置
+
+#### License
+
+Released under [MIT] LICENSE
 
 
 
