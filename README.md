@@ -105,11 +105,22 @@ grunt watch
 
 使用`grunt watch:sass`或者`grunt watch:css`分别监听`.scss`和`.css`文件。
 
-######打包&&发布
+######打包
 
 使用`grunt bundle`可自动生成不包含开发时的杂乱文件压缩包，文件名为`项目名称-生成时间.zip`的压缩包。
 
 执行`grunt bundle`实际上为依次执行'clean:pre', 'copy:main','cssmin','copy:archive', 'clean:post','compress'等命令，首先将先前`build`文件夹中的内容清空，然后生成、复制、压缩最新的代码(不包含`node_modules`文件夹、`.gitignore`、`Gruntfile.js`等配置文件)。
+
+
+######发布:上传到FTP服务器
+
+支持直接发布上传到ftp服务器,对于没有使用git的项目做到一个线下版本管理、线上便捷发布。
+```
+grunt publish
+```
+注意:发布之前请先执行`grunt bundle`打包最终代码。
+
+ftp帐号与密码保存在`.ftppass`文件中，请注意保密。
 
 ####说明
 

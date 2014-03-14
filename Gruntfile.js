@@ -50,7 +50,7 @@ module.exports=function(grunt){
                     {expand: true, src: ['assets/css/**'], dest: 'build/'},
                     {expand: true, src: ['assets/images/**'], dest: 'build/'},
                     {expand: true, src: ['assets/js/**'], dest: 'build/'},
-                    {expand: true, src: ['*', '!.gitignore', '!.DS_Store','!Gruntfile.js','!package.json'], dest: 'build/'},
+                    {expand: true, src: ['*', '!.gitignore', '!.DS_Store','!Gruntfile.js','!package.json','!node_modules/**'], dest: 'build/'},
                 ]
             },
 
@@ -119,6 +119,19 @@ module.exports=function(grunt){
             }
             //JavaScript
 
+        },
+        //发布到FTP服务器 : 注意安全，ftp帐号密码保存在 .ftppass 文件
+        'ftp-deploy': {
+          build: {
+            auth: {
+              host: '115.28.56.68',
+              port: 21,
+              authKey: 'key1'
+            },
+            src: 'build',
+            dest: '/home/ftp/demo',
+            exclusions: ['path/to/source/folder/**/.DS_Store', 'path/to/source/folder/**/Thumbs.db', 'path/to/dist/tmp']
+          }
         }
 
     });
@@ -141,6 +154,7 @@ module.exports=function(grunt){
     grunt.registerTask('sass', ['sass:admin','cssmin']);
     //执行 grunt bundle --最终输出的文件 < name-生成日期.zip > 文件
     grunt.registerTask('bundle', ['clean:pre', 'copy:main','cssmin','copy:archive', 'clean:post','compress']);
-
+    //执行 grunt publish 可以直接上传项目文件到指定服务器FTP目录
+    grunt.registerTask('publish', ['ftp-deploy']);
 
 };
