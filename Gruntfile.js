@@ -12,7 +12,7 @@ module.exports=function(grunt){
         },
         buildType:'Build',
         pkg: grunt.file.readJSON('package.json'),
-        archive_name: grunt.option('name') || 'StaticPage',
+        archive_name: grunt.option('name') || 'StaticPage项目名称',
 
         //清理掉开发时才需要的文件
         clean: {
@@ -21,14 +21,14 @@ module.exports=function(grunt){
         },
 
         uglify:{
-        	options:{
-        		banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n' //js文件打上时间戳
-        	},
-	        dist: {
-	             files: {
-	                 '<%= paths.assets %>/js/min.v.js': '<%= paths.js %>/base.js'
-	             }
-	        }
+            options:{
+                banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n' //js文件打上时间戳
+            },
+            dist: {
+                 files: {
+                     '<%= paths.assets %>/js/min.v.js': '<%= paths.js %>/base.js'
+                 }
+            }
         },
 
         //压缩最终的theme 文件
@@ -88,7 +88,7 @@ module.exports=function(grunt){
               }
         },
 
-        //监听变化
+        //监听变化 默认grunt watch 监测所有开发文件变化
         watch:{
             options:{
                 //开启 livereload
@@ -99,7 +99,6 @@ module.exports=function(grunt){
                     grunt.log.writeln('Wating for more changes...');
                 }
             },
-
             //css
             sass:{
                 files:'<%= paths.scss %>/**/*.scss',
@@ -110,8 +109,13 @@ module.exports=function(grunt){
                 tasks:['cssmin']
             },
             js:{
-            	 files:'<%= paths.js %>/**/*.js',
-            	 tasks:['uglify']
+                 files:'<%= paths.js %>/**/*.js',
+                 tasks:['uglify']
+            },
+            //若不使用Sass，可通过grunt watch:base 只监测style.css和接收文件
+            base:{
+                files:['<%= paths.css %>/**/*.css','<%= paths.js %>/**/*.js'],
+                tasks:['cssmin','uglify']
             }
             //JavaScript
 
@@ -135,7 +139,7 @@ module.exports=function(grunt){
 
     grunt.registerTask('default', ['cssmin','uglify']);
     grunt.registerTask('sass', ['sass:admin','cssmin']);
-    //执行 grunt bundle --最终输出的文件 name.zip 文件
+    //执行 grunt bundle --最终输出的文件 < name-生成日期.zip > 文件
     grunt.registerTask('bundle', ['clean:pre', 'copy:main','cssmin','copy:archive', 'clean:post','compress']);
 
 
