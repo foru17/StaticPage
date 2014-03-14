@@ -50,7 +50,7 @@ module.exports=function(grunt){
                     {expand: true, src: ['assets/css/**'], dest: 'build/'},
                     {expand: true, src: ['assets/images/**'], dest: 'build/'},
                     {expand: true, src: ['assets/js/**'], dest: 'build/'},
-                    {expand: true, src: ['*', '!.gitignore', '!.DS_Store','!Gruntfile.js'], dest: 'build/'},
+                    {expand: true, src: ['*', '!.gitignore', '!.DS_Store','!Gruntfile.js','!package.json'], dest: 'build/'},
                 ]
             },
 

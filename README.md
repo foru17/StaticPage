@@ -99,7 +99,11 @@ grunt sass
 ````
 grunt watch
 ````
-可监听所有的开发目录下`.scss`,`.css`,'.js'的变化，自动编译压缩。当然，也可以单独使用`grunt watch:sass`或者`grunt watch:css`分别监听.scss和.css文件。
+可监听所有的开发目录下`.scss`,`.css`,'.js'的变化，自动编译压缩。
+
+可以单独使用`grunt watch:base`进行普通监听`js`目录下所有文件和`css/style.css`。
+
+使用`grunt watch:sass`或者`grunt watch:css`分别监听`.scss`和`.css`文件。
 
 ######打包&&发布
 
