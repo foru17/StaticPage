@@ -21,7 +21,7 @@ npm install
 
 ####文件结构
 
-静态页面不需要太过复杂的文件结构，最终的发布版本代码和相关文件全部在`assets`文件夹中。为了后续维护方便，请适当做好相应的注释和文档。
+静态页面不需要太过复杂的文件结构，最终的发布版本代码和相关文件全部在`build`文件夹中。为了后续维护方便，请适当做好相应的注释和文档。
 
 ````
 newProject/
@@ -31,39 +31,41 @@ newProject/
 |           |-js
 |           |-images
 |
-|-----build //开发涉及的相关所有文件
-|       |-assets //上线时的css、js、images等
+|-----build //最终生成的纯净文件夹
+|       |-assets //
 |           |-css
-|               |-min.style.css //最终生成的为压缩版本的css
+|               |-min.style.css //  最终生成的为压缩版本的css
 |           |-js
-|               |-min.v.js //最终生成的为压缩版本的js
-|               |-other.js //其他样式表
+|               |-min.v.js //  最终生成的为压缩版本的js
+|               |-other.js //  其他样式表
 |           |-images
 |
-|       |-favicon.ico //静态页的ico
+|       |-favicon.ico //  静态页的ico
 |       |-index.html
-|       |-README.md //附上MD文档
+|       |-README.md //  附上MD文档
 |       |-此处根据项目需求，引入不用文件
 |
-|-----css //样式表开发目录
-|   |-sass //推荐使用Sass样式表
+|-----css //  样式表开发目录
+|   |-sass //  推荐使用Sass
 |       |- _481up.scss
 |       |- _768up.scss
 |       |- _base.scss
 |       |- _mixins.scss
-|       |- _reset.scss  //此处可用normalize.css样式，也可以根据项目需求自定义
-|       |- style.scss //此处为Sass基础文件 ，在此处根据需求@import 样式
-|   |-style.css //Sass编译处理生成的样式表为style.css，也可直接编辑此样式表
-|   |-style.css.map //若使用Sass --pre 版本，可使用sourcemap功能
+|       |- _reset.scss  //  此处可用normalize.css样式，也可以根据项目需求自定义
+|       |- style.scss // 此处为Sass基础文件 ，在此处根据需求@import 样式
+|   |-style.css //  Sass编译处理生成的样式表为style.css，也可直接编辑此样式表
+|   |-style.css.map // 若使用Sass --pre 版本，可使用sourcemap功能（注:2014年3月发布的Sass 3.3默认支持sourcemap）
 |
 |-----js //JavaScript相关
-|   |-base.js //基础样式在这里，最终压缩为min.v.js
+|   |-base.js // 基础样式在这里，最终压缩为min.v.js
 |
-|----- .node_modules / //npm安装依赖包所在文件夹
+|----- .node_modules / // npm安装依赖包所在文件夹
 |
-|-----.gitignore //默认使用git，配置好gitignore文件
-|-----Gruntfiles.js //grunt配置文件 建议先阅读配置
-|-----package.json //grunt依赖包配置文件
+|-----.gitignore // 默认使用git，配置好gitignore文件
+|-----.ftppass.json // 保存FTP帐号和密码的文件，请注意安全，建议添加到gitignore文件中
+|-----Gruntfiles.js // grunt配置文件 建议先阅读配置
+|-----package.json //g runt依赖包配置文件
+
 ````
 
 ####初始化
