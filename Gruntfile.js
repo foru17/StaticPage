@@ -5,14 +5,14 @@ module.exports=function(grunt){
         //默认文件目录在这里
         paths:{
             assets:'./assets',//输出的最终文件assets里面
-            scss:'./css/sass',//开始推荐使用Sass
-            css:'./css', //若简单项目，可直接使用原生CSS，同样可以grunt watch进行监控
-            js:'./js', //JavaScript相关目录
+            scss:'./css/sass',//推荐使用Sass
+            css:'./css', //若简单项目，可直接使用原生CSS，同样可以grunt watch:base进行监控
+            js:'./js', //js文件相关目录
             img:'./img' //图片相关
         },
         buildType:'Build',
         pkg: grunt.file.readJSON('package.json'),
-        archive_name: grunt.option('name') || 'StaticPage项目名称',
+        archive_name: grunt.option('name') || 'StaticPage项目名称',//此处可根据自己的需求修改
 
         //清理掉开发时才需要的文件
         clean: {
@@ -31,7 +31,7 @@ module.exports=function(grunt){
             }
         },
 
-        //压缩最终的theme 文件
+        //压缩最终Build文件夹
         compress:{
             main:{
                 options:{
@@ -117,14 +117,13 @@ module.exports=function(grunt){
                 files:['<%= paths.css %>/**/*.css','<%= paths.js %>/**/*.js'],
                 tasks:['cssmin','uglify']
             }
-            //JavaScript
 
         },
-        //发布到FTP服务器 : 注意安全，ftp帐号密码保存在 .ftppass 文件
+        //发布到FTP服务器 : 请注意密码安全，ftp的帐号密码保存在主目录 .ftppass 文件
         'ftp-deploy': {
           build: {
             auth: {
-              host: '115.28.56.68',
+              host: 'yourftp.domain.com',
               port: 21,
               authKey: 'key1'
             },

@@ -10,7 +10,7 @@
 #OSX系统下忽略
 .DS_Store
 
-# Folders
+#忽略以下文件夹
 .sass-cache/
 node_modules/
 build/

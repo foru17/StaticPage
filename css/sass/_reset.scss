@@ -1,0 +1,52 @@
+/* 精简后的Reset样式:适用于桌面项目 */
+body,h1,h2,h3,h4,h5,h6,hr,p,blockquote,dl,dt,dd,ul,ol,li,pre,form,fieldset,legend,button,input,textarea,th,td {
+    margin: 0;
+    padding: 0
+}
+
+body,button,input,select,textarea {
+    font: 12px/1.5 arial,sans-serif,'宋体';
+    color: #1C1C1C
+}
+
+h1,h2,h3,h4,h5,h6 {
+    font-size: 100%
+}
+
+html {
+    _background-image: url(about:blank);
+    _background-attachment: fixed
+}
+
+em,i {
+    font-style: normal
+}
+
+ul,ol {
+    list-style: none
+}
+
+a {
+    text-decoration: none;
+    color: #1C1C1C;
+    outline: 0;
+    _blr: expression(this.onFocus=this.blur())
+}
+
+a:hover {
+    color:  #ddffde;
+    text-decoration: underline
+}
+
+fieldset,img {
+    border: 0
+}
+
+button,input,select,textarea {
+    font-size: 100%
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0
+}
