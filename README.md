@@ -14,7 +14,7 @@ A simple Template for quikly creating a static page project.Based on grunt.
 git clone https://github.com/foru17/StaticPage.git
 ````
 
-国内阿里云镜像可使用
+访问Github较慢的同学可以可使用该Repo在阿里云的镜像，执行以下命令即可：
 
 ````
 git clone http://git.is26.com/StaticPage.git
