@@ -1,6 +1,7 @@
 StaticPage 静态页面自动化工具
 ==========
 
+
 A simple Template for quikly creating a static page project.Based on grunt.
 
 一套快速生成简单静态页模板的工具
@@ -12,6 +13,14 @@ A simple Template for quikly creating a static page project.Based on grunt.
 ````
 git clone https://github.com/foru17/StaticPage.git
 ````
+
+国内阿里云镜像可使用
+
+````
+git clone http://git.is26.com/StaticPage.git
+````
+
+
 ####安装Npm依赖包
 
 详细的依赖包清单请参考`package.json`文件，Grunt相关配置请看`Gruntfile.js`
