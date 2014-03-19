@@ -96,6 +96,22 @@ module.exports=function(grunt){
               }
         },
 
+
+        htmlmin: {
+         // 格式化和清理html文件
+            dist: {
+                options: {
+                removeComments: true,
+                //collapseWhitespace: true //压缩html:根据情况开启与否
+            },
+
+            files: {
+                'build/index.html': 'build/index.html',//清除html中的注释
+                }
+            }
+        },
+
+
         //监听变化 默认grunt watch 监测所有开发文件变化
         watch:{
             options:{
@@ -155,12 +171,12 @@ module.exports=function(grunt){
     grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-uglify');
-    grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-contrib-htmlmin');
 
-    grunt.registerTask('default', ['cssmin','uglify']);
+    grunt.registerTask('default', ['cssmin','uglify','htmlmin']);
     grunt.registerTask('sass', ['sass:admin','cssmin']);
     //执行 grunt bundle --最终输出的文件 < name-生成日期.zip > 文件
-    grunt.registerTask('bundle', ['clean:pre', 'copy:main','copy:images','cssmin','copy:archive', 'clean:post','compress']);
+    grunt.registerTask('bundle', ['clean:pre', 'copy:main','copy:images','cssmin','copy:archive', 'clean:post','compress','htmlmin']);
     //执行 grunt publish 可以直接上传项目文件到指定服务器FTP目录
     grunt.registerTask('publish', ['ftp-deploy']);
 
