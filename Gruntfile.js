@@ -55,9 +55,12 @@ module.exports=function(grunt){
             },
 
             images:{
-                files:[
-                    {expand: true, src: ['img/**'], dest: 'assets/images/'},
-                ]
+                        expand: true,
+                        cwd:'img/',
+                        src: ['**','!github.png'],
+                        dest: 'assets/images/',
+                        flatten:true,
+                        filter:'isFile',
             },
 
 
@@ -172,10 +175,10 @@ module.exports=function(grunt){
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-htmlmin');
 
-    grunt.registerTask('default', ['cssmin','uglify','htmlmin']);
+    grunt.registerTask('default', ['cssmin','uglify','htmlmin','copy:images']);
     grunt.registerTask('sass', ['sass:admin','cssmin']);
     //执行 grunt bundle --最终输出的文件 < name-生成日期.zip > 文件
-    grunt.registerTask('bundle', ['clean:pre', 'copy:main','cssmin','copy:archive', 'clean:post','htmlmin','compress',]);
+    grunt.registerTask('bundle', ['clean:pre','copy:images', 'copy:main','cssmin','copy:archive', 'clean:post','htmlmin','compress',]);
     //执行 grunt publish 可以直接上传项目文件到指定服务器FTP目录
     grunt.registerTask('publish', ['ftp-deploy']);
 
