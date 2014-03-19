@@ -14,7 +14,7 @@ git clone https://github.com/foru17/StaticPage.git
 ````
 ####安装Npm依赖包
 
-详细的依赖包清单请参考`package.json`文件，grunt相关配置请看`Gruntfile.js`
+详细的依赖包清单请参考`package.json`文件，Grunt相关配置请看`Gruntfile.js`
 
 ````
 npm install
