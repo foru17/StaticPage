@@ -50,7 +50,7 @@ module.exports=function(grunt){
                     {expand: true, src: ['assets/css/**'], dest: 'build/'},
                     {expand: true, src: ['assets/images/**'], dest: 'build/'},
                     {expand: true, src: ['assets/js/**'], dest: 'build/'},
-                    {expand: true, src: ['*', '!.gitignore', '!.DS_Store','!Gruntfile.js','!package.json','!node_modules/**','!*.zip'], dest: 'build/'},
+                    {expand: true, src: ['*', '!.gitignore', '!.DS_Store','!Gruntfile.js','!package.json','!node_modules/**','!<%= archive_name %>*.zip'], dest: 'build/'},
                 ]
             },
 
@@ -84,8 +84,8 @@ module.exports=function(grunt){
             }
         },
 
+        //压缩 css
         cssmin:{
-            //压缩 css
             options:{
                   keepSpecialComments: 0
               },
@@ -98,9 +98,8 @@ module.exports=function(grunt){
               }
         },
 
-
+        // 格式化和清理html文件
         htmlmin: {
-         // 格式化和清理html文件
             dist: {
                 options: {
                 removeComments: true,
@@ -138,13 +137,14 @@ module.exports=function(grunt){
                  files:'<%= paths.js %>/**/*.js',
                  tasks:['uglify']
             },
-            //若不使用Sass，可通过grunt watch:base 只监测style.css和接收文件
+            //若不使用Sass，可通过grunt watch:base 只监测style.css和js文件
             base:{
                 files:['<%= paths.css %>/**/*.css','<%= paths.js %>/**/*.js','img/**'],
                 tasks:['cssmin','uglify','copy:images']
             }
 
         },
+
         //发布到FTP服务器 : 请注意密码安全，ftp的帐号密码保存在主目录 .ftppass 文件
         'ftp-deploy': {
           build: {
