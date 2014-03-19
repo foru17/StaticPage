@@ -35,7 +35,7 @@ module.exports=function(grunt){
         compress:{
             main:{
                 options:{
-                    archive:'<%= archive_name %>-<%= grunt.template.today("yyyy") %>年<%= grunt.template.today("mm") %>月<%= grunt.template.today("dd") %>日<%= grunt.template.today("h") %>时.zip'
+                    archive:'<%= archive_name %>-<%= grunt.template.today("yyyy") %>年<%= grunt.template.today("mm") %>月<%= grunt.template.today("dd") %>日<%= grunt.template.today("h") %>时<%= grunt.template.today("TT") %>.zip'
                 },
                 expand:true,
                 cwd:'build/',
@@ -57,7 +57,6 @@ module.exports=function(grunt){
             images:{
                 files:[
                     {expand: true, src: ['img/**'], dest: 'assets/images/'},
-                    {expand: true, src: ['*', '!.gitignore', '!.DS_Store','!github.png'], dest: 'assets/images/'},
                 ]
             },
 
@@ -176,7 +175,7 @@ module.exports=function(grunt){
     grunt.registerTask('default', ['cssmin','uglify','htmlmin']);
     grunt.registerTask('sass', ['sass:admin','cssmin']);
     //执行 grunt bundle --最终输出的文件 < name-生成日期.zip > 文件
-    grunt.registerTask('bundle', ['clean:pre', 'copy:main','copy:images','cssmin','copy:archive', 'clean:post','compress','htmlmin']);
+    grunt.registerTask('bundle', ['clean:pre', 'copy:main','cssmin','copy:archive', 'clean:post','htmlmin','compress',]);
     //执行 grunt publish 可以直接上传项目文件到指定服务器FTP目录
     grunt.registerTask('publish', ['ftp-deploy']);
 
