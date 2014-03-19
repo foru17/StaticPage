@@ -7,8 +7,10 @@ A simple Template for quikly creating a static page project.Based on grunt.
 一套快速生成简单静态页模板的工具
 
 
-图文教程可参考[让前端工作更快、更智能:利用StaticPage自动化工作流](http://luolei.org/2014/03/front-end-dev-with-grunt-staticpage-workflow/)
+图文教程可参考[《让前端工作更快、更智能:利用StaticPage自动化工作流》](http://luolei.org/2014/03/front-end-dev-with-grunt-staticpage-workflow/)
 
+
+####克隆本仓库
 
 ````
 git clone https://github.com/foru17/StaticPage.git
