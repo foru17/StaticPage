@@ -2,7 +2,7 @@ StaticPage 静态页面自动化工具
 ==========
 ![banner](http://file.is26.com/wp-image/2014/03/smart-with-static.jpg)
 
-A tool for quikly creating a static page project .Based on Grunt.
+A tool for quickly creating a static page project .Based on Grunt.
 
 StaticPage是一套旨在提高静态页面开发效率、快速生成模板、开发的的工具。
 
@@ -127,6 +127,8 @@ grunt watch
 使用`grunt bundle`可自动生成不包含开发时的杂乱文件压缩包，文件名为`项目名称-生成时间.zip`的压缩包。
 
 执行`grunt bundle`实际上为依次执行'clean:pre', 'copy:main','cssmin','copy:archive', 'clean:post','compress'等命令，首先将先前`build`文件夹中的内容清空，然后生成、复制、压缩最新的代码(不包含`node_modules`文件夹、`.gitignore`、`Gruntfile.js`等配置文件)。
+
+注意:打包后自动压缩html，默认清理掉注释，删除空格在Grunt配置中可选（追求极致可以勾选）。
 
 
 ######发布:上传到FTP服务器
