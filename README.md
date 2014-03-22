@@ -1,22 +1,23 @@
 StaticPage 静态页面自动化工具
 ==========
+![banner](http://file.is26.com/wp-image/2014/03/smart-with-static.jpg)
 
+A tool for quikly creating a static page project .Based on Grunt.
 
-A simple Template for quikly creating a static page project.Based on grunt.
+StaticPage是一套旨在提高静态页面开发效率、快速生成模板、开发的的工具。
 
-一套快速生成简单静态页模板的工具
-
-
-图文教程可参考[《让前端工作更快、更智能:利用StaticPage自动化工作流》](http://luolei.org/2014/03/front-end-dev-with-grunt-staticpage-workflow/)
+图文教程可参考博文[《让前端工作更快、更智能:利用StaticPage自动化工作流》](http://luolei.org/2014/03/front-end-dev-with-grunt-staticpage-workflow/)。
 
 
 ####克隆本仓库
+
+在开发目录下执行：
 
 ````
 git clone https://github.com/foru17/StaticPage.git
 ````
 
-访问Github较慢的同学可以可使用该Repo在阿里云的镜像，执行以下命令即可：
+访问Github较慢的同学可使用该Repo在阿里云的镜像，执行以下命令即可：
 
 ````
 git clone http://git.is26.com/StaticPage.git
@@ -90,7 +91,7 @@ git clone下来后，可以将`StaticPage`文件夹修改成项目的文件名�
 grunt bundle
 ````
 
-####grunt配置
+####Grunt配置
 
 ######CSS编译&&压缩
 
