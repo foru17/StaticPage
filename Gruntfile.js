@@ -1,6 +1,6 @@
 module.exports=function(grunt){
     require('time-grunt')(grunt);//Grunt处理任务进度条提示
-    //配置
+
     grunt.initConfig({
         //默认文件目录在这里
         paths:{
