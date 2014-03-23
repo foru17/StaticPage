@@ -6,7 +6,7 @@ A tool for quickly creating a static page project .Based on Grunt.
 
 StaticPage是一套旨在提高静态页面开发效率、快速生成模板、开发的的工具。
 
-图文教程可参考博文[《让前端工作更快、更智能:利用StaticPage自动化工作流》](http://luolei.org/2014/03/front-end-dev-with-grunt-staticpage-workflow/)。
+图文教程可参考博文:[《让前端工作更快、更智能:利用StaticPage自动化工作流》](http://luolei.org/2014/03/front-end-dev-with-grunt-staticpage-workflow/)。
 
 
 ####克隆本仓库
