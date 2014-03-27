@@ -9,6 +9,13 @@ StaticPage是一套旨在提高静态页面开发效率、快速生成模板、�
 图文教程可参考博文:[《让前端工作更快、更智能:利用StaticPage自动化工作流》](http://luolei.org/2014/03/front-end-dev-with-grunt-staticpage-workflow/)。
 
 
+####一键脚本安装包
+
+
+````
+git clone https://github.com/foru17/StaticPage.git && cd StaticPage && sh go.sh
+````
+
 ####克隆本仓库
 
 在开发目录下执行：

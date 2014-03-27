@@ -21,8 +21,8 @@ function gitchange(){
 
 function devbuild(){
     echo "安装NPM依赖包?是否执行(y,N)?: "
-    read -p "npm install  : " yn
     while true;do
+    read -p "npm install  : " yn
     case $yn in
         [Yy]* ) npm install ;;
         [Nn]* ) exit;;
@@ -48,9 +48,9 @@ read -p "name: " projectname && sed -i '' 's/StaticPage/'$projectname'/g' packag
 echo "请输入你的项目文件夹名（中英文均+文件系统允许符号）:"
 read -p "archive_name :" chinesename && sed -i '' 's/StaticPage项目名称/'$chinesename'/g' Gruntfile.js
 
-read -p "是否添加自己的GIT远程仓库(输入(y/N): " yn
 
 while true;do
+read -p "是否添加自己的GIT远程仓库(输入(y/N): " yn
 case $yn in
     [Yy]* ) gitchange ;;
     [Nn]* ) devbuild ;;
@@ -62,28 +62,24 @@ done
 
 }
 
-#欢迎页面
-if [ -a package.json ] ;
+#欢迎页面 如果有package.json则执行项目内操作
+foldername=${PWD##*/}
+if [  -a package.json ] && [ $foldername != "StaticPage" ]] ;
 then
+    cd .. && read -p "请给你的文件夹重命名:" rename && mv StaticPage $rename && cd $rename && sh go.sh
     echo "欢迎使用\"StaticPage\"静态页面自动化工具"
     echo "该项目文档在Github https://github.com/foru17/StaticPage "
     echo
     diyproject
 else
 
-    read -p '首先请git clone本项目，是否要执行(y/N)?: ' yn
     while true;do
+    read -p '首先请git clone本项目，是否要执行(y/N)?: ' yn
     case $yn in
-        [Yy]* ) git clone https://github.com/foru17/StaticPage.git ;;
+        [Yy]* ) git clone https://github.com/foru17/StaticPage.git && read -p "请给你的文件夹重命名:" rename &&mv StaticPage $rename && cd $rename ;;
         [Nn]* ) devbuild ;;
         * ) echo "请回答y或者N: " ;;
         esac
     done
 
 fi
-
-
-
-
-
-
