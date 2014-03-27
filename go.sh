@@ -14,6 +14,7 @@ function gitchange(){
     echo "请添加你的GIT远程仓库地址:(例 git:@git.yourserver.com:/home/git/project.git)"
     read -p "git remote add origin" gitremote
     git remote add origin $gitremote
+    devbuild
 }
 
 
@@ -24,7 +25,7 @@ function devbuild(){
     while true;do
     read -p "npm install  : " yn
     case $yn in
-        [Yy]* ) npm install ;;
+        [Yy]* ) npm install ;break;;
         [Nn]* ) exit;;
         * ) echo "请回答y或者N: " ;;
         esac
@@ -54,7 +55,7 @@ read -p "是否添加自己的GIT远程仓库(输入(y/N): " yn
 case $yn in
     [Yy]* ) gitchange ;break;;
     [Nn]* ) devbuild ;break;;
-    * ) echo "请回答y或者N: " ;break;;
+    * ) echo "请回答y或者N: ";;
     esac
 done
 
