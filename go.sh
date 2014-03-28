@@ -11,8 +11,8 @@ function gitchange(){
     #首先删除已有的GIT remote branch
     git remote rm origin
     #添加自己的remote
-    echo "请添加你的GIT远程仓库地址:(例 git:@git.yourserver.com:/home/git/project.git)"
-    read -p "git remote add origin" gitremote
+    echo "请添加你的GIT远程仓库地址:(例 git@git.yourserver.com:/home/git/project.git)"
+    read -p "git remote add origin " gitremote
     git remote add origin $gitremote
     devbuild
 }
@@ -31,7 +31,7 @@ function devbuild(){
         esac
     done
 
-    echo "恭喜你部署成功你的新项目:\""chinesename"\""
+    echo "恭喜你部署成功你的新项目:\""$chinesename"\""
     echo "执行相应的grunt <task> 命令可以进行不同的操作"
     echo "详细可参考 README.md 文档"
 }
