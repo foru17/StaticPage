@@ -65,7 +65,7 @@ done
 
 #欢迎页面 如果有package.json则执行项目内操作
 foldername=${PWD##*/}
-if [  -a package.json ] && [ "$foldername" != "StaticPage" ];
+if [  -a package.json ];
 then
     #cd .. && read -p "请给你的文件夹重命名:" rename && mv StaticPage $rename && cd $rename && sh go.sh
     echo "欢迎使用\"StaticPage\"静态页面自动化工具"
@@ -73,8 +73,6 @@ then
     echo
     diyproject
 else
-
-
     while true;do
         read -p '首先请git clone本项目，是否要执行(y/N)?: ' yn
     case $yn in
