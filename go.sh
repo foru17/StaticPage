@@ -3,8 +3,6 @@
 #Author:@foru17
 
 #定义项目变量
-projectname=$1
-chinesename=$2
 
 #自定义远程GIT
 function gitchange(){
@@ -39,9 +37,7 @@ function devbuild(){
 
 function diyproject(){
 #首先安装依赖包
-#if [ -e package.json] ; then
-#echo "执行npm install，安装依赖包.....";
-#npm install && read -p "请输入你的项目名称" pname
+
 echo
 echo "修改在package.json中的项目名称(注意:只允许英文和数字禁止空格):"
 read -p "name: " projectname && sed -i '' 's/StaticPage/'$projectname'/g' package.json
