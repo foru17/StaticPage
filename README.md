@@ -25,7 +25,7 @@ git clone https://github.com/foru17/StaticPage.git && cd StaticPage && sh go.sh
 git clone https://github.com/foru17/StaticPage.git
 ````
 
-访问Github较慢的同学可使用该Repo在阿里云的镜像，执行以下命令即可：
+访问Github较慢的同学可使用该Repo在阿里云的镜像，该镜像与Github上自动同步。
 
 ````
 git clone http://git.is26.com/StaticPage.git
