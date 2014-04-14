@@ -3,7 +3,7 @@
 #Author:@foru17
 #url: http://luolei.org
 #定义项目变量
-
+#GO
 #自定义远程GIT
 function gitchange(){
     #首先删除已有的GIT remote branch
