@@ -15,6 +15,7 @@
     "grunt-contrib-uglify": "~0.2.2",
     "time-grunt": "^0.2.9",
     "grunt-ftp-deploy": "^0.1.2",
-    "grunt-contrib-htmlmin": "^0.2.0"
+    "grunt-contrib-htmlmin": "^0.2.0",
+    "grunt-closure-tools": "^0.9.7"
   }
 }

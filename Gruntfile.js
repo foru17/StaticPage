@@ -30,7 +30,23 @@ module.exports=function(grunt){
                  }
             }
         },
-
+        //调用谷歌高级压缩
+        'closure-compiler':{
+            base:{
+              closurePath:'/usr/local/Cellar/closure-compiler/20140407/libexec', //在这里指定谷歌高级压缩路径
+              js:[
+                '<%= paths.assets %>/js/v.js',
+              ],
+              jsOutputFile:'<%= paths.assets %>/js/min.main.js',//输出的js为min.main.js
+              noreport:true,
+              maxBuffer: 500,
+              options:{
+                compilation_level: 'ADVANCED_OPTIMIZATIONS',
+                warning_level:"DEFAULT"
+                // language_in: 'ECMASCRIPT5_STRICT'
+              }
+            }
+        },
         //压缩最终Build文件夹
         compress:{
             main:{
@@ -181,5 +197,6 @@ module.exports=function(grunt){
     grunt.registerTask('bundle', ['clean:pre','copy:images', 'copy:main','cssmin','copy:archive', 'clean:post','htmlmin','compress',]);
     //执行 grunt publish 可以直接上传项目文件到指定服务器FTP目录
     grunt.registerTask('publish', ['ftp-deploy']);
-
+    //执行 grunt gcc 可进行谷歌压缩
+     grunt.registerTask('gcc', ['closure-compiler']);
 };
