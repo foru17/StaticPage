@@ -7,6 +7,14 @@
 <meta name="description" content="  " />
 <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 <link href="assets/css/min.style.css" rel="stylesheet" type="text/css" />
+<!-- 异步加载js -->
+<script type="text/javascript">(function() {
+    var ss = document.createElement('script'), hh = document.getElementsByTagName('head')[0];
+    ss.type = 'text/javascript';
+    ss.async = true;
+    ss.src = 'assets/js/v.js';
+    hh.appendChild(ss);
+})();</script>
 <!--
 *若需直接在Chrome里调试Sass，建议直接调用/css/style.css以开启Sourcemap*
 <link href="/css/style.css" rel="stylesheet" type="text/css" />
@@ -18,6 +26,7 @@
 <h1>StaticPage</h1>
 
 <!-- 在底部加载相关js -->
-<script type="text/javascript" src="assets/js/min.v.js"></script>
-</body>
+<!-- <script type="text/javascript" src="assets/js/min.v.js"></script>
+ -->
+ </body>
 </html>
