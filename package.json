@@ -16,6 +16,7 @@
     "time-grunt": "^0.2.9",
     "grunt-ftp-deploy": "^0.1.2",
     "grunt-contrib-htmlmin": "^0.2.0",
-    "grunt-closure-tools": "^0.9.7"
+    "grunt-closure-compiler": "0.0.21",
+    "grunt-sftp-deploy": "^0.2.0"
   }
 }

@@ -173,6 +173,23 @@ module.exports=function(grunt){
             dest: '/home/ftp/demo',
             exclusions: ['path/to/source/folder/**/.DS_Store', 'path/to/source/folder/**/Thumbs.db', 'path/to/dist/tmp']
           }
+        },
+
+        'sftp-deploy': {
+          build: {
+            auth: {
+              host: 'yoursftp.domain.com',
+              port: 22,
+              authKey: 'key1'
+            },
+            cache: 'sftpCache.json',
+            src: 'build',
+            dest: '/home/sftp/demo',
+          exclusions: ['path/to/source/folder/**/.DS_Store', 'path/to/source/folder/**/Thumbs.db', 'path/to/dist/tmp'],
+            serverSep: '/',
+            concurrency: 4,
+            progress: true
+          }
         }
 
     });
@@ -190,13 +207,19 @@ module.exports=function(grunt){
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-htmlmin');
-
+    grunt.loadNpmTasks('grunt-ftp-deploy');
+    grunt.loadNpmTasks('grunt-sftp-deploy');
+    grunt.loadNpmTasks('grunt-closure-compiler');//增加谷歌高级压缩
+    /*下方为配置的常用 grunt 命令*/
     grunt.registerTask('default', ['cssmin','uglify','htmlmin','copy:images']);
     grunt.registerTask('sass', ['sass:admin','cssmin']);
     //执行 grunt bundle --最终输出的文件 < name-生成日期.zip > 文件
     grunt.registerTask('bundle', ['clean:pre','copy:images', 'copy:main','cssmin','copy:archive', 'clean:post','htmlmin','compress',]);
     //执行 grunt publish 可以直接上传项目文件到指定服务器FTP目录
     grunt.registerTask('publish', ['ftp-deploy']);
+    //执行 grunt ssh 可以利用 ssh 上传到服务器
+    grunt.registerTask('ssh', ['sftp-deploy']);
     //执行 grunt gcc 可进行谷歌压缩
      grunt.registerTask('gcc', ['closure-compiler']);
+
 };
