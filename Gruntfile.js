@@ -22,7 +22,10 @@ module.exports=function(grunt){
 
         uglify:{
             options:{
-                banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n' //js文件打上时间戳
+            compress: {
+              drop_console: true
+            },
+            banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n' //js文件打上时间戳
             },
             dist: {
                  files: {
@@ -103,7 +106,8 @@ module.exports=function(grunt){
         //压缩 css
         cssmin:{
             options:{
-                  keepSpecialComments: 0
+                  keepSpecialComments: 0,
+				  banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */' //CSS文件打上时间戳
               },
               compress:{
                     files:{
