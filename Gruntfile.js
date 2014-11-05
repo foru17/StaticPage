@@ -216,7 +216,7 @@ module.exports=function(grunt){
     grunt.loadNpmTasks('grunt-closure-compiler');//增加谷歌高级压缩
     /*下方为配置的常用 grunt 命令*/
     grunt.registerTask('default', ['cssmin','uglify','htmlmin','copy:images']);
-    grunt.registerTask('sass', ['sass:admin','cssmin']);
+    grunt.registerTask('styles', ['sass:admin','cssmin']);
     //执行 grunt bundle --最终输出的文件 < name-生成日期.zip > 文件
     grunt.registerTask('bundle', ['clean:pre','copy:images', 'copy:main','cssmin','copy:archive', 'clean:post','htmlmin','compress',]);
     //执行 grunt publish 可以直接上传项目文件到指定服务器FTP目录
