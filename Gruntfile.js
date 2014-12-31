@@ -25,7 +25,11 @@ module.exports = function(grunt) {
                 compress: {
                     drop_console: true
                 },
-                banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n' //js文件打上时间戳
+                banner: '/** \n' +
+                    '* Project : <%= pkg.name %> \n' +
+                    '* Author : <%= pkg.author %> \n' +
+                    '* Updated : <%= grunt.template.today() %> \n' +
+                    '*/ \n'
             },
             dist: {
                 files: {
@@ -108,7 +112,12 @@ module.exports = function(grunt) {
             admin: {
                 options: {
                     sourcemap: true,
-                    banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
+                    style: 'nested',
+                    banner: '/** \n' +
+                        '* Project : <%= pkg.name %> \n' +
+                        '* Author : <%= pkg.author %> \n' +
+                        '* Updated : <%= grunt.template.today() %> \n' +
+                        '*/ \n'
                 },
                 files: {
                     '<%= paths.css %>/style.css': '<%= paths.scss %>/style.scss',
@@ -120,7 +129,11 @@ module.exports = function(grunt) {
         cssmin: {
             options: {
                 keepSpecialComments: 0,
-                banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */' //CSS文件打上时间戳
+                banner: '/** \n' +
+                    '* Project : <%= pkg.name %> \n' +
+                    '* Author : <%= pkg.author %> \n' +
+                    '* Updated : <%= grunt.template.today() %> \n' +
+                    '*/ \n'
             },
             compress: {
                 files: {
